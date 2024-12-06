@@ -1,0 +1,10 @@
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Python
+.venv/
+
+# Miscellaneous
+**/.DS_Store

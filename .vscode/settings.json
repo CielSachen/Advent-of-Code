@@ -1,0 +1,27 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+
+  "files.insertFinalNewline": true,
+
+  "evenBetterToml.schema.associations": {
+    "pyproject.toml": "http://json.schemastore.org/pyproject",
+    "ruff.toml": "http://json.schemastore.org/ruff"
+  },
+
+  "prettier.printWidth": 120,
+
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.fixAll": ["source.unusedImports"],
+  "python.analysis.typeCheckingMode": "strict",
+
+  "ruff.configuration": "./ruff.toml",
+  "ruff.lineLength": 120,
+
+  "[python]": {
+    "editor.codeActionsOnSave": { "source.fixAll": "explicit", "source.organizeImports": "explicit" },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4
+  }
+}

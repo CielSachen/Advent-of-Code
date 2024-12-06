@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+
+import re
+
+
+def main():
+    print("----- ADVENT OF CODE : 2024 : DAY 4 -----\n")
+
+    input_file = open("input.txt", "r")
+    rows = input_file.readlines()
+
+    input_file.close()
+
+    word_count = 0
+
+    for row in rows:
+        word_count += len(re.findall(r"(?=(XMAS))", row)) + len(re.findall(r"(?=(SAMX))", row))
+
+    rows_length = len(rows)
+
+    for rows_index, row in enumerate(rows):
+        if rows_index >= rows_length - 3:
+            break
+
+        row_length = len(row)
+
+        for row_index, character in enumerate(row):
+            if character == "X":
+                if (
+                    rows[rows_index + 1][row_index] == "M"
+                    and rows[rows_index + 2][row_index] == "A"
+                    and rows[rows_index + 3][row_index] == "S"
+                ):
+                    word_count += 1
+
+                if (
+                    row_index < row_length - 3
+                    and rows[rows_index + 1][row_index + 1] == "M"
+                    and rows[rows_index + 2][row_index + 2] == "A"
+                    and rows[rows_index + 3][row_index + 3] == "S"
+                ):
+                    word_count += 1
+
+                if (
+                    row_index >= 3
+                    and rows[rows_index + 1][row_index - 1] == "M"
+                    and rows[rows_index + 2][row_index - 2] == "A"
+                    and rows[rows_index + 3][row_index - 3] == "S"
+                ):
+                    word_count += 1
+            elif character == "S":
+                if (
+                    rows[rows_index + 1][row_index] == "A"
+                    and rows[rows_index + 2][row_index] == "M"
+                    and rows[rows_index + 3][row_index] == "X"
+                ):
+                    word_count += 1
+
+                if (
+                    row_index < row_length - 3
+                    and rows[rows_index + 1][row_index + 1] == "A"
+                    and rows[rows_index + 2][row_index + 2] == "M"
+                    and rows[rows_index + 3][row_index + 3] == "X"
+                ):
+                    word_count += 1
+
+                if (
+                    row_index >= 3
+                    and rows[rows_index + 1][row_index - 1] == "A"
+                    and rows[rows_index + 2][row_index - 2] == "M"
+                    and rows[rows_index + 3][row_index - 3] == "X"
+                ):
+                    word_count += 1
+
+    print(f"Part 1 Puzzle Answer: {word_count}")
+
+    new_word_count = 0
+
+    for rows_index, row in enumerate(rows):
+        if rows_index >= rows_length - 2:
+            break
+
+        row_length = len(row)
+
+        for row_index, character in enumerate(row):
+            if row_index < row_length - 2:
+                if (
+                    character == "M"
+                    and row[row_index + 2] == "S"
+                    and rows[rows_index + 1][row_index + 1] == "A"
+                    and rows[rows_index + 2][row_index] == "M"
+                    and rows[rows_index + 2][row_index + 2] == "S"
+                ):
+                    new_word_count += 1
+
+                if (
+                    character == "S"
+                    and row[row_index + 2] == "M"
+                    and rows[rows_index + 1][row_index + 1] == "A"
+                    and rows[rows_index + 2][row_index] == "S"
+                    and rows[rows_index + 2][row_index + 2] == "M"
+                ):
+                    new_word_count += 1
+
+                if (
+                    character == "S"
+                    and row[row_index + 2] == "S"
+                    and rows[rows_index + 1][row_index + 1] == "A"
+                    and rows[rows_index + 2][row_index] == "M"
+                    and rows[rows_index + 2][row_index + 2] == "M"
+                ):
+                    new_word_count += 1
+
+                if (
+                    character == "M"
+                    and row[row_index + 2] == "M"
+                    and rows[rows_index + 1][row_index + 1] == "A"
+                    and rows[rows_index + 2][row_index] == "S"
+                    and rows[rows_index + 2][row_index + 2] == "S"
+                ):
+                    new_word_count += 1
+
+    print(f"Part 2 Puzzle Answer: {new_word_count}")
+
+
+if __name__ == "__main__":
+    main()
