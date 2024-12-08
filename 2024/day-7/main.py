@@ -41,7 +41,7 @@ def main():
     print("----- ADVENT OF CODE : 2024 : DAY 7 -----\n")
 
     with open("input.txt", "r") as input_file:
-        equations = input_file.readlines()
+        equations = input_file.read().splitlines()
 
     initial_possible_test_values: list[int] = []
     actual_possible_test_values: list[int] = []

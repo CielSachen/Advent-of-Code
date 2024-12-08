@@ -6,121 +6,119 @@ import re
 def main():
     print("----- ADVENT OF CODE : 2024 : DAY 4 -----\n")
 
-    input_file = open("input.txt", "r")
-    rows = input_file.readlines()
-
-    input_file.close()
+    with open("input.txt", "r") as input_file:
+        rows = input_file.read().splitlines()
 
     word_count = 0
 
     for row in rows:
-        word_count += len(re.findall(r"(?=(XMAS))", row)) + len(re.findall(r"(?=(SAMX))", row))
+        word_count += len(re.findall(r"(?=(XMAS|SAMX))", row))
 
-    rows_length = len(rows)
+    board_height = len(rows)
 
-    for rows_index, row in enumerate(rows):
-        if rows_index >= rows_length - 3:
+    for row_number, row in enumerate(rows):
+        if row_number >= board_height - 3:
             break
 
-        row_length = len(row)
+        board_width = len(row)
 
-        for row_index, character in enumerate(row):
+        for column_number, character in enumerate(row):
             if character == "X":
                 if (
-                    rows[rows_index + 1][row_index] == "M"
-                    and rows[rows_index + 2][row_index] == "A"
-                    and rows[rows_index + 3][row_index] == "S"
+                    rows[row_number + 1][column_number] == "M"
+                    and rows[row_number + 2][column_number] == "A"
+                    and rows[row_number + 3][column_number] == "S"
                 ):
                     word_count += 1
 
                 if (
-                    row_index < row_length - 3
-                    and rows[rows_index + 1][row_index + 1] == "M"
-                    and rows[rows_index + 2][row_index + 2] == "A"
-                    and rows[rows_index + 3][row_index + 3] == "S"
+                    column_number < board_width - 3
+                    and rows[row_number + 1][column_number + 1] == "M"
+                    and rows[row_number + 2][column_number + 2] == "A"
+                    and rows[row_number + 3][column_number + 3] == "S"
                 ):
                     word_count += 1
 
                 if (
-                    row_index >= 3
-                    and rows[rows_index + 1][row_index - 1] == "M"
-                    and rows[rows_index + 2][row_index - 2] == "A"
-                    and rows[rows_index + 3][row_index - 3] == "S"
+                    column_number >= 3
+                    and rows[row_number + 1][column_number - 1] == "M"
+                    and rows[row_number + 2][column_number - 2] == "A"
+                    and rows[row_number + 3][column_number - 3] == "S"
                 ):
                     word_count += 1
             elif character == "S":
                 if (
-                    rows[rows_index + 1][row_index] == "A"
-                    and rows[rows_index + 2][row_index] == "M"
-                    and rows[rows_index + 3][row_index] == "X"
+                    rows[row_number + 1][column_number] == "A"
+                    and rows[row_number + 2][column_number] == "M"
+                    and rows[row_number + 3][column_number] == "X"
                 ):
                     word_count += 1
 
                 if (
-                    row_index < row_length - 3
-                    and rows[rows_index + 1][row_index + 1] == "A"
-                    and rows[rows_index + 2][row_index + 2] == "M"
-                    and rows[rows_index + 3][row_index + 3] == "X"
+                    column_number < board_width - 3
+                    and rows[row_number + 1][column_number + 1] == "A"
+                    and rows[row_number + 2][column_number + 2] == "M"
+                    and rows[row_number + 3][column_number + 3] == "X"
                 ):
                     word_count += 1
 
                 if (
-                    row_index >= 3
-                    and rows[rows_index + 1][row_index - 1] == "A"
-                    and rows[rows_index + 2][row_index - 2] == "M"
-                    and rows[rows_index + 3][row_index - 3] == "X"
+                    column_number >= 3
+                    and rows[row_number + 1][column_number - 1] == "A"
+                    and rows[row_number + 2][column_number - 2] == "M"
+                    and rows[row_number + 3][column_number - 3] == "X"
                 ):
                     word_count += 1
 
     print(f"Part 1 Puzzle Answer: {word_count}")
 
-    new_word_count = 0
+    word_count = 0
 
-    for rows_index, row in enumerate(rows):
-        if rows_index >= rows_length - 2:
+    for row_number, row in enumerate(rows):
+        if row_number >= board_height - 2:
             break
 
-        row_length = len(row)
+        board_width = len(row)
 
-        for row_index, character in enumerate(row):
-            if row_index < row_length - 2:
+        for column_number, character in enumerate(row):
+            if column_number < board_width - 2:
                 if (
                     character == "M"
-                    and row[row_index + 2] == "S"
-                    and rows[rows_index + 1][row_index + 1] == "A"
-                    and rows[rows_index + 2][row_index] == "M"
-                    and rows[rows_index + 2][row_index + 2] == "S"
+                    and row[column_number + 2] == "S"
+                    and rows[row_number + 1][column_number + 1] == "A"
+                    and rows[row_number + 2][column_number] == "M"
+                    and rows[row_number + 2][column_number + 2] == "S"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "S"
-                    and row[row_index + 2] == "M"
-                    and rows[rows_index + 1][row_index + 1] == "A"
-                    and rows[rows_index + 2][row_index] == "S"
-                    and rows[rows_index + 2][row_index + 2] == "M"
+                    and row[column_number + 2] == "M"
+                    and rows[row_number + 1][column_number + 1] == "A"
+                    and rows[row_number + 2][column_number] == "S"
+                    and rows[row_number + 2][column_number + 2] == "M"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "S"
-                    and row[row_index + 2] == "S"
-                    and rows[rows_index + 1][row_index + 1] == "A"
-                    and rows[rows_index + 2][row_index] == "M"
-                    and rows[rows_index + 2][row_index + 2] == "M"
+                    and row[column_number + 2] == "S"
+                    and rows[row_number + 1][column_number + 1] == "A"
+                    and rows[row_number + 2][column_number] == "M"
+                    and rows[row_number + 2][column_number + 2] == "M"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "M"
-                    and row[row_index + 2] == "M"
-                    and rows[rows_index + 1][row_index + 1] == "A"
-                    and rows[rows_index + 2][row_index] == "S"
-                    and rows[rows_index + 2][row_index + 2] == "S"
+                    and row[column_number + 2] == "M"
+                    and rows[row_number + 1][column_number + 1] == "A"
+                    and rows[row_number + 2][column_number] == "S"
+                    and rows[row_number + 2][column_number + 2] == "S"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
-    print(f"Part 2 Puzzle Answer: {new_word_count}")
+    print(f"Part 2 Puzzle Answer: {word_count}")
 
 
 if __name__ == "__main__":

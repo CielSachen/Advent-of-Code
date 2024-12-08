@@ -3,6 +3,14 @@
 POSITION_DELTAS = ((0, -1), (1, 0), (0, 1), (-1, 0))
 
 
+def get_starting_position(rows: list[str]) -> tuple[int, int]:
+    for row_number, row in enumerate(rows):
+        if "^" in row:
+            return (row.index("^"), row_number)
+
+    raise Exception("The caret (^) character representing the starting position does not exist.")
+
+
 def get_visited_positions_amount(
     rows: list[str], starting_position: tuple[int, int], additional_block_position: tuple[int, int] | None = None
 ) -> set[tuple[int, int]]:
@@ -45,19 +53,10 @@ def get_visited_positions_amount(
 def main():
     print("----- ADVENT OF CODE : 2024 : DAY 6 -----\n")
 
-    input_file = open("input.txt", "r")
-    rows = input_file.readlines()
+    with open("input.txt", "r") as input_file:
+        rows = input_file.read().splitlines()
 
-    input_file.close()
-
-    starting_position: tuple[int, int] = None  # type: ignore
-
-    for index, row in enumerate(rows):
-        if "^" in row:
-            starting_position = (row.index("^"), index)
-
-            break
-
+    starting_position = get_starting_position(rows)
     visited_positions = get_visited_positions_amount(rows, starting_position)
 
     print(f"Part 1 Puzzle Answer: {len(visited_positions)}")
