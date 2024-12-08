@@ -6,15 +6,13 @@ import re
 def main():
     print("----- ADVENT OF CODE : 2024 : DAY 4 -----\n")
 
-    input_file = open("input.txt", "r")
-    rows = input_file.readlines()
-
-    input_file.close()
+    with open("input.txt", "r") as input_file:
+        rows = input_file.readlines()
 
     word_count = 0
 
     for row in rows:
-        word_count += len(re.findall(r"(?=(XMAS))", row)) + len(re.findall(r"(?=(SAMX))", row))
+        word_count += len(re.findall(r"(?=(XMAS|SAMX))", row))
 
     rows_length = len(rows)
 
@@ -74,7 +72,7 @@ def main():
 
     print(f"Part 1 Puzzle Answer: {word_count}")
 
-    new_word_count = 0
+    word_count = 0
 
     for rows_index, row in enumerate(rows):
         if rows_index >= rows_length - 2:
@@ -91,7 +89,7 @@ def main():
                     and rows[rows_index + 2][row_index] == "M"
                     and rows[rows_index + 2][row_index + 2] == "S"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "S"
@@ -100,7 +98,7 @@ def main():
                     and rows[rows_index + 2][row_index] == "S"
                     and rows[rows_index + 2][row_index + 2] == "M"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "S"
@@ -109,7 +107,7 @@ def main():
                     and rows[rows_index + 2][row_index] == "M"
                     and rows[rows_index + 2][row_index + 2] == "M"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
                 if (
                     character == "M"
@@ -118,9 +116,9 @@ def main():
                     and rows[rows_index + 2][row_index] == "S"
                     and rows[rows_index + 2][row_index + 2] == "S"
                 ):
-                    new_word_count += 1
+                    word_count += 1
 
-    print(f"Part 2 Puzzle Answer: {new_word_count}")
+    print(f"Part 2 Puzzle Answer: {word_count}")
 
 
 if __name__ == "__main__":

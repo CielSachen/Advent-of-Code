@@ -4,16 +4,14 @@
 def main():
     print("----- ADVENT OF CODE : 2024 : DAY 1 -----\n")
 
-    input_file = open("input.txt", "r")
-    number_pairs = input_file.readlines()
-
-    input_file.close()
+    with open("input.txt", "r") as input_file:
+        number_pairs = input_file.readlines()
 
     left_number_list: list[int] = []
     right_number_list: list[int] = []
 
     for pair in number_pairs:
-        numbers = list(map(int, pair.split()))
+        numbers = list(map(int, pair.split(maxsplit=1)))
 
         left_number_list.append(numbers[0])
         right_number_list.append(numbers[1])
