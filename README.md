@@ -4,4 +4,4 @@ This monorepo contains all my [Advent of Code](https://adventofcode.com/) soluti
 
 ## Included Solutions
 
-- [**2024**](./2024/) - From day 1 until day 6.
+- [**2024**](./2024/) - From day 1 until day 7.
