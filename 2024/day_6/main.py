@@ -3,12 +3,12 @@
 from os import path
 from typing import Optional
 
-type OrderedPair = tuple[int, int]
+type Coordinates = tuple[int, int]
 
 GUARD_POSITION = "^"
 OBSTRUCTION = "#"
 
-POSITION_DELTAS: tuple[OrderedPair, OrderedPair, OrderedPair, OrderedPair] = (
+POSITION_DELTAS: tuple[Coordinates, Coordinates, Coordinates, Coordinates] = (
     (0, -1),
     (1, 0),
     (0, 1),
@@ -16,7 +16,7 @@ POSITION_DELTAS: tuple[OrderedPair, OrderedPair, OrderedPair, OrderedPair] = (
 )
 
 
-def get_starting_position(map_rows: list[str]) -> OrderedPair:
+def get_starting_position(map_rows: list[str]) -> Coordinates:
     for row_number, row in enumerate(map_rows):
         if GUARD_POSITION in row:
             return (row.index(GUARD_POSITION), row_number)
@@ -28,13 +28,13 @@ def get_starting_position(map_rows: list[str]) -> OrderedPair:
 
 def get_visited_positions(
     map_rows: list[str],
-    starting_position: OrderedPair,
-    additional_block_position: Optional[OrderedPair] = None,
-) -> set[OrderedPair]:
+    starting_position: Coordinates,
+    additional_block_position: Optional[Coordinates] = None,
+) -> set[Coordinates]:
     current_position = starting_position
     current_direction = 0
     visited_positions = {starting_position}
-    directional_visited_positions: set[tuple[OrderedPair, int]] = set()
+    directional_visited_positions: set[tuple[Coordinates, int]] = set()
 
     while True:
         next_position_x = current_position[0] + POSITION_DELTAS[current_direction][0]

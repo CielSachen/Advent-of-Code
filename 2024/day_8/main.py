@@ -4,9 +4,9 @@ from collections import defaultdict
 from itertools import product
 from os import path
 
-type OrderedPair = tuple[int, int]
+type Coordinates = tuple[int, int]
 
-type LocationsByAntenna = dict[str, set[OrderedPair]]
+type LocationsByAntenna = dict[str, set[Coordinates]]
 
 
 def get_locations_by_antenna(map_rows: list[str]) -> LocationsByAntenna:
@@ -26,7 +26,7 @@ def count_antinodes(
     antenna_to_locations: LocationsByAntenna,
     should_ignore_distance: bool = False,
 ) -> int:
-    antinodes: set[OrderedPair] = set()
+    antinodes: set[Coordinates] = set()
     maximum_column_count = len(map_rows[0])
     maximum_row_count = len(map_rows)
 
@@ -47,7 +47,7 @@ def count_antinodes(
                 location[0] - other_location[0],
                 location[1] - other_location[1],
             )
-            antinode_location: OrderedPair = (
+            antinode_location: Coordinates = (
                 location[0] + location_delta_x,
                 location[1] + location_delta_y,
             )

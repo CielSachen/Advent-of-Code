@@ -2,14 +2,13 @@
 
 from os import path
 
-type OrderedPair = tuple[int, int]
-type OrderedPairLike = tuple[int, ...]
+type PageOrderingRule = tuple[int, ...]
 
 
 def parse_safety_protocols(
     input: str,
-) -> tuple[list[OrderedPairLike], list[list[int]]]:
-    page_ordering_rules: list[OrderedPairLike] = []
+) -> tuple[list[PageOrderingRule], list[list[int]]]:
+    page_ordering_rules: list[PageOrderingRule] = []
     updates: list[list[int]] = []
 
     for line in input.splitlines():
@@ -22,8 +21,8 @@ def parse_safety_protocols(
 
 
 def get_relevant_rules(
-    page_ordering_rules: list[OrderedPairLike], update: list[int]
-) -> list[OrderedPair]:
+    page_ordering_rules: list[PageOrderingRule], update: list[int]
+) -> list[PageOrderingRule]:
     return [
         (first_page, second_page)
         for first_page, second_page in page_ordering_rules
@@ -31,7 +30,7 @@ def get_relevant_rules(
     ]
 
 
-def is_correct_update(update: list[int], page_ordering_rules: list[OrderedPair]) -> bool:
+def is_correct_update(update: list[int], page_ordering_rules: list[PageOrderingRule]) -> bool:
     for first_page, second_page in page_ordering_rules:
         if update.index(first_page) > update.index(second_page):
             return False
