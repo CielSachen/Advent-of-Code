@@ -117,7 +117,9 @@ def solve_part_two(input: str) -> None:
 
 
 def main() -> None:
-    print("--- Day 7: Bridge Repair ---\n")
+    print("--- Day 7: Bridge Repair ---")
+
+    print()
 
     with open(path.join(path.dirname(__file__), "input.txt"), mode="r") as input_file:
         puzzle_input = input_file.read()

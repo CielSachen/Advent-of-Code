@@ -43,7 +43,9 @@ def solve_part_two(input: str) -> None:
 
 
 def main() -> None:
-    print("--- Day 3: Mull It Over ---\n")
+    print("--- Day 3: Mull It Over ---")
+
+    print()
 
     with open(path.join(path.dirname(__file__), "input.txt"), mode="r") as input_file:
         puzzle_input = input_file.read()

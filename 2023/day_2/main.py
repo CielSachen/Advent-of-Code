@@ -78,7 +78,9 @@ def solve_part_two(input: str) -> None:
 
 
 def main() -> None:
-    print("--- Day 2: Cube Conundrum ---\n")
+    print("--- Day 2: Cube Conundrum ---")
+
+    print()
 
     with open(path.join(path.dirname(__file__), "input.txt"), mode="r") as input_file:
         puzzle_input = input_file.read()
