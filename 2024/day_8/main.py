@@ -39,17 +39,17 @@ def count_antinodes(
         if should_ignore_distance:
             antinodes = antinodes.union(locations)
 
-        for location, other_location in product(locations, locations):
-            if location == other_location:
+        for first_location, second_location in product(locations, locations):
+            if first_location == second_location:
                 continue
 
             (location_delta_x, location_delta_y) = (
-                location[0] - other_location[0],
-                location[1] - other_location[1],
+                first_location[0] - second_location[0],
+                first_location[1] - second_location[1],
             )
             antinode_location: Coordinates = (
-                location[0] + location_delta_x,
-                location[1] + location_delta_y,
+                first_location[0] + location_delta_x,
+                first_location[1] + location_delta_y,
             )
 
             if should_ignore_distance:
