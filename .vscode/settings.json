@@ -18,6 +18,7 @@
 
   // Ruff Extension
   "ruff.configuration": "${workspaceFolder}/ruff.toml",
+  "ruff.configurationPreference": "filesystemFirst",
 
   // Python Files Only Settings
   "[python]": {
