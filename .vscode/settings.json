@@ -1,28 +1,28 @@
 {
-  // Text Editor
+  /* Text Editor */
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "files.insertFinalNewline": true,
 
-  // Python Support
+  /* Python Support */
   "python.analysis.autoImportCompletions": true,
   "python.analysis.fixAll": ["source.unusedImports", "source.convertImportFormat"],
   "python.analysis.typeCheckingMode": "strict",
 
-  // TOML Support
-  "evenBetterToml.schema.associations": { "ruff.toml": "http://json.schemastore.org/ruff" },
+  /* TOML Support */
+  "evenBetterToml.schema.associations": { "ruff.toml": "http:/*json.schemastore.org/ruff" },
 
-  // Prettier Extension
+  /* Prettier Extension */
   "prettier.configPath": "./.prettierrc",
 
-  // Ruff Extension
+  /* Ruff Extension */
   "ruff.configuration": "${workspaceFolder}/ruff.toml",
   "ruff.configurationPreference": "filesystemFirst",
 
-  // Python Files Only Settings
+  /* Python Files Only Settings */
   "[python]": {
-    // Text Editor
+    /* Text Editor */
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"

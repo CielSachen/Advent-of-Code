@@ -1,21 +1,21 @@
 {
   "recommendations": [
-    // Language Support
+    /* Language Support */
     "ms-python.debugpy",
     "ms-python.python",
     "ms-python.vscode-pylance",
     "ms-python.vscode-python-envs",
     "tamasfe.even-better-toml",
 
-    // Intellicode
+    /* Intellicode */
     "visualstudioexptteam.intellicode-api-usage-examples",
     "visualstudioexptteam.vscodeintellicode",
 
-    // Formatting and Linting
+    /* Formatting and Linting */
     "charliermarsh.ruff",
     "esbenp.prettier-vscode",
 
-    // GitHub
+    /* GitHub */
     "github.vscode-pull-request-github"
   ]
 }
