@@ -1,0 +1,12 @@
+# Checking-in and Checking-out
+*           text=auto
+*.json      text
+*.md        text diff=markdown
+*.py        text diff=python
+*.toml      text
+*.txt       text
+.prettierrc text
+
+# Archive Creation
+.gitattributes export-ignore
+.gitignore     export-ignore
