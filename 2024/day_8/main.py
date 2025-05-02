@@ -100,11 +100,11 @@ def main() -> None:
     print()
 
     with open(path.join(path.dirname(__file__), "input.txt"), mode="r") as input_file:
-        puzzle_input = input_file.read()
+        input = input_file.read()
 
-    solve_part_one(puzzle_input)
+    solve_part_one(input)
 
-    solve_part_two(puzzle_input)
+    solve_part_two(input)
 
 
 if __name__ == "__main__":
