@@ -28,12 +28,12 @@ def get_file_blocks(input: str) -> list[str]:
 
 def solve_part_one(input: str) -> None:
     file_blocks = get_file_blocks(input)
-    file_blocks_length = len(file_blocks)
+    file_block_amount = len(file_blocks)
     reverse_index = 0
 
     for index, block in enumerate(file_blocks):
-        if block == FREE_SPACE and index < file_blocks_length + reverse_index:
-            while index < file_blocks_length + reverse_index:
+        if block == FREE_SPACE and index < file_block_amount + reverse_index:
+            while index < file_block_amount + reverse_index:
                 reverse_index -= 1
                 last_file_block = file_blocks.pop()
 
@@ -53,11 +53,11 @@ def solve_part_one(input: str) -> None:
 def solve_part_two(input: str) -> None:
     free_space_index = 0
     file_blocks = get_file_blocks(input)
-    file_blocks_length = len(file_blocks)
+    file_block_amount = len(file_blocks)
     free_space_count = 0
     free_spaces: dict[int, list[int]] = defaultdict(list)
 
-    while free_space_index < file_blocks_length:
+    while free_space_index < file_block_amount:
         if file_blocks[free_space_index] == FREE_SPACE:
             free_space_count += 1
 
@@ -72,13 +72,13 @@ def solve_part_two(input: str) -> None:
 
     reverse_index = -1
 
-    while reverse_index >= -file_blocks_length:
+    while reverse_index >= -file_block_amount:
         if file_blocks[reverse_index] != FREE_SPACE:
             reverse_indexes = [reverse_index]
             reverse_index -= 1
 
             while (
-                reverse_index >= -file_blocks_length
+                reverse_index >= -file_block_amount
                 and file_blocks[reverse_index] == file_blocks[reverse_index + 1]
             ):
                 reverse_indexes.append(reverse_index)
@@ -95,7 +95,7 @@ def solve_part_two(input: str) -> None:
 
             if (
                 front_indexes is not None
-                and file_blocks_length + reverse_indexes[0] > front_indexes[0]
+                and file_block_amount + reverse_indexes[0] > front_indexes[0]
             ):
                 for index in range(len(reverse_indexes)):
                     file_blocks[front_indexes.pop(0)] = file_blocks[reverse_indexes[index]]
