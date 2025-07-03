@@ -1,0 +1,10 @@
+# Editor Settings
+.vscode/
+
+# Python Environment
+.venv/
+# Python Bytecode
+**/__pycache__/
+
+# Miscellaneous
+**/.DS_Store
