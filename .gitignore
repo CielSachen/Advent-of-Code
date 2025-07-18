@@ -1,0 +1,8 @@
+# Editor Settings
+.vscode/
+
+# Python Bytecode
+**/__pycache__/
+
+# Miscellaneous
+**/.DS_Store
