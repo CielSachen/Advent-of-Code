@@ -1,6 +1,6 @@
 # Advent of Code
 
-[![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FCielSachen%2FAdvent-of-Code%2Fmain%2Fpyproject.toml&style=flat-square&label=Python)](https://www.python.org/)
+[![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FCielSachen%2FAdvent-of-Code%2Fmain%2Fpyproject.toml&label=Python)](https://www.python.org/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 My solutions for [Advent of Code](https://adventofcode.com/) problems throughout the years. I only
