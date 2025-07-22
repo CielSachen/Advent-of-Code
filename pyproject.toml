@@ -12,13 +12,7 @@ description = "Seoyun’s solutions for Advent of Code problems throughout the y
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE.txt"]
-keywords = [
-  "advent-of-code",
-  "advent-of-code-2023",
-  "advent-of-code-2024",
-  "python",
-  "python-3",
-]
+keywords = ["advent-of-code", "advent-of-code-2023", "advent-of-code-2024", "python", "python3"]
 classifiers = [
   "Private :: Do Not Upload",
   "Development Status :: 5 - Production/Stable",
