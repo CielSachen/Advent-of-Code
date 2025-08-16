@@ -1,0 +1,90 @@
+line-length = 120
+show-fixes = true
+target-version = "py313"
+
+[format]
+docstring-code-format = true
+line-ending = "lf"
+skip-magic-trailing-comma = true
+
+[lint]
+ignore = [
+  "ISC001", # single-line-implicit-string-concatenation
+  "INP001", # implicit-namespace-package
+  "T201",   # print
+  "RET501", #	unnecessary-return-none
+  "RET502", # implicit-return-value
+  "TD002",  # missing-todo-author
+  "TD003",  # missing-todo-link
+
+  # Formatter Conflicts
+  "COM812", # missing-trailing-comma
+  "COM819", # prohibited-trailing-comma
+  "ISC002", # multi-line-implicit-string-concatenation
+  "E111",   # indentation-with-invalid-multiple
+  "E114",   # indentation-with-invalid-multiple-comment
+  "E117",   # over-indented
+  "W191",   # tab-indentation
+]
+preview = true
+select = [
+  "FAST",  # FastAPI
+  "YTT",   # flake8-2020
+  "ANN",   # flake8-annotations
+  "ASYNC", # flake8-async
+  "S",     # flake8-bandit
+  "BLE",   # flake8-blind-except
+  "FBT",   # flake8-boolean-trap
+  "B",     # flake8-bugbear
+  "A",     # flake8-builtins
+  "COM",   # flake8-commas
+  "C4",    # flake8-comprehensions
+  "DTZ",   # flake8-datetimez
+  "T10",   # flake8-debugger
+  "EM",    # flake8-errmsg
+  "EXE",   # flake8-executable
+  "FA",    # flake8-future-annotations
+  "INT",   # flake8-gettext
+  "ISC",   # flake8-implicit-str-concat
+  "ICN",   # flake8-import-conventions
+  "LOG",   # flake8-logging
+  "G",     # flake8-logging-format
+  "INP",   # flake8-no-pep420
+  "PIE",   # flake8-pie
+  "T20",   # flake8-print
+  "PYI",   # flake8-pyi
+  "PT",    # flake8-pytest-style
+  "RSE",   # flake8-raise
+  "RET",   # flake8-return
+  "SLF",   # flake8-self
+  "SIM",   # flake8-simplify
+  "SLOT",  # flake8-slots
+  "TID",   # flake8-tidy-imports
+  "TD",    # flake8-todos
+  "TC",    # flake8-type-checking
+  "ARG",   # flake8-unused-arguments
+  "FLY",   # flynt
+  "I",     # isort
+  "N",     # PEP 8 Naming Conventions
+  "PERF",  # Perflint
+  "E",     # pycodestyle (Error)
+  "W",     # pycodestyle (Warning)
+  "DOC",   # pydoclint
+  "F",     # Pyflakes
+  "PGH",   # pygrep-hooks
+  "PL",    # Pylint
+  "UP",    # pyupgrade
+  "FURB",  # refurb
+  "RUF",   # Ruff-Specific Rules
+  "TRY",   # tryceratops
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = [
+  "S101",    # assert
+  "PLR2004", # magic-value-comparison
+  "PLR6301", # no-self-use
+]
+
+[lint.pydocstyle]
+convention = "google"

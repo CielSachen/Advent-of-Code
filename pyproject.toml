@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "advent-of-code"
+version = "0.1.0"
+dependencies = []
+requires-python = ">=3.13"
+authors = [{ name = "Seoyun" }]
+description = "Seoyun's solutions for Advent of Code problems throughout the years."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE.txt"]
+keywords = ["advent-of-code", "advent-of-code-2023", "advent-of-code-2024", "python", "python3"]
+classifiers = [
+  "Private :: Do Not Upload",
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/CielSachen/Advent-of-Code#readme"
+Repository = "https://github.com/CielSachen/Advent-of-Code.git"
+
+[project.scripts]
+solve = "advent_of_code:main"
+
+[dependency-groups]
+dev = ["pytest>=8.4.1", "ruff>=0.12.9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
