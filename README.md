@@ -1,7 +1,7 @@
 # Advent of Code
 
-[![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FCielSachen%2FAdvent-of-Code%2Fmain%2Fpyproject.toml&label=Python)](https://www.python.org/)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FCielSachen%2FAdvent-of-Code%2Fmain%2Fpyproject.toml&logo=python&label=Python&color=3776ab)](https://www.python.org/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff/)
 
 My solutions for [Advent of Code](https://adventofcode.com/) problems throughout the years. The solutions are written in
 Python and are not made with speed or memory efficiency in mind. I try to solve as many days as possible during the
