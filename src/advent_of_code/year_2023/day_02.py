@@ -1,14 +1,13 @@
 import itertools
 import math
+from collections.abc import Generator
 
 TITLE = "Cube Conundrum"
 
 type _GameRecord = tuple[int, int, int]
 
 
-def _parse_game_records(puzzle_in: str) -> list[_GameRecord]:
-    game_recs: list[_GameRecord] = []
-
+def _parse_game_records(puzzle_in: str) -> Generator[_GameRecord]:
     for raw_game_rec in puzzle_in.splitlines():
         red_cube_amount = 0
         green_cube_amount = 0
@@ -25,9 +24,7 @@ def _parse_game_records(puzzle_in: str) -> list[_GameRecord]:
                 case _:
                     pass
 
-        game_recs.append((red_cube_amount, green_cube_amount, blue_cube_amount))
-
-    return game_recs
+        yield (red_cube_amount, green_cube_amount, blue_cube_amount)
 
 
 def solve_part_1(puzzle_in: str) -> int:
